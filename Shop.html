@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Patrick F. Taylor Shop</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div id="all-contents">
+   <nav>
+    <h1>The PT Shop</h1>
+    <ul id="nav-ul">
+      <li class="nav-li"><a href="index.html">Home</a></li>
+      <li class="nav-li"><a href="Shop.html">Shop</a></li>
+       <li class="nav-li"><a href="Checkout.html">Checkout</a></li>
+        <li class="nav-li"><a href="Signin.html">Sign in</a></li>   
+     </ul>
+  </nav>
+ 
+ 
+ 
+ <h3>In Stock</h3>
+  
+  <div id="Items">
+    <ul>
+        <!-- First Item -->
+        <li data-id="item-1">
+            <img src="/popcorners.jpeg" alt="PopCorners">
+            <span class="label-text">Popcorners (1$)</span>
+            <span class="count-box">Ordered: <span class="count">0</span></span>
+            
+        </li>
+
+        <!-- Second Item -->
+        <li data-id="item-2">
+            <img src="/rice crispy treat.webp" alt="RiceCrispy">
+            <span class="label-text">Rice Crispy (1$)</span>
+            <span class="count-box">Ordered: <span class="count">0</span></span>
+        </li>
+        <!-- Theird Item -->
+        <li data-id="item-3">
+            <img src="/CapriSun.jpeg" alt="CapriSun">
+            <span class="label-text">Capri Suns (1$)</span>
+            <span class="count-box">Ordered: <span class="count">0</span></span>
+        </li>
+
+        <!-- TBD Item -->
+        
+            
+            
+      
+    </ul>
+</div>
+<script>
+    const CLICK_LIMIT = 5; 
+    const items = document.querySelectorAll('#Items li');
+
+    items.forEach(item => {
+        const itemId = item.getAttribute('data-id');
+        const countDisplay = item.querySelector('.count');
+        const resetBtn = item.querySelector('.reset-btn');
+
+        if (!countDisplay || !itemId) return; 
+
+        let savedCount = parseInt(localStorage.getItem(itemId)) || 0;
+        countDisplay.textContent = savedCount;
+
+        if (savedCount >= CLICK_LIMIT) {
+            item.style.opacity = "0.5";
+            item.style.cursor = "not-allowed";
+        }
+
+        // HANDLE REGULAR ITEM CLICK
+        item.addEventListener('click', () => {
+            if (savedCount < CLICK_LIMIT) {
+                savedCount++;
+                countDisplay.textContent = savedCount;
+                localStorage.setItem(itemId, savedCount);
+
+                if (savedCount === CLICK_LIMIT) {
+                    item.style.opacity = "0.5";
+                    item.style.cursor = "not-allowed";
+                }
+            }
+        });
+
+         // HANDLE RESET BUTTON CLICK
+        if (resetBtn) {
+            resetBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents the main card from counting this as a click
+                
+                savedCount = 0;
+                countDisplay.textContent = 0;
+                localStorage.setItem(itemId, 0); // Clear browser memory for this item
+                
+                // Restore normal card appearance
+                item.style.opacity = "1";
+                item.style.cursor = "pointer";
+            });
+        }
+    });
+</script>
+
+
+
+
+</body>

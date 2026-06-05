@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+#all-contents {
+    max-width: 1500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 32px 40px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(420px, 1.6fr);
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.sidebar {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+body {
+    background: #b5d0ff; /* warm paper */
+   
+}
+
+h2 {
+    margin-top:-275px ;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #fffffff6;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    transform: translateY(50px);
+  
+}
+
+.content > p {
+    margin-top: -75px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    transform: translateY(50px);
+}
+
+.sidebar-img {
+    width: 100%;
+    max-width: 760px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: filter 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    margin-top:-150px;
+}
+
+.sidebar-img:hover {
+    filter: grayscale(0%);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+    padding: 40px 24px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 12px;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #878787;
+}
+
+#nav-ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-li a {
+    color: #878787;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-li a:hover {
+    background: #878787;
+    color: #fff;
+}
+
+/* SHOP OPTIONS */
+#Items {
+    margin-top: 0px;
+    width: 100%;
+}
+
+#Items h3 {
+    margin: 0 0 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #878787;
+}
+
+#Items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+#Items li {
+    /* Forces the image and text to stack vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Adds space between the image and the text */
+
+    /* Your exact custom styles */
+    color: #878787;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 15px 50px; /* Adjusted top/bottom padding to fit the image nicely */
+    background: #fff;
+    border: 2px solid #878787;
+    border-radius: 20px; /* Changed from 100px to 20px so it fits a square image shape better */
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    cursor: default;
+}
+
+#Items li:hover {
+    background: #878787;
+    color: #fff;
+    border-color: #878787;
+    transform: translateY(-2px);
+}
+
+/* Ensures your images don't break the button boundaries */
+#Items li img {
+    max-width: 150px; /* Adjust this to change the image size */
+    height: auto;
+    border-radius: 8px; /* Optional: rounds the corners of your image */
+}
+/* Makes the mouse pointer turn into a clickable hand */
+#Items li {
+    cursor: pointer; 
+}
+
+/* Styles the click counter container */
+.count-box {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* Optional: changes the counter color to white when you hover over the gray button */
+#Items li:hover .count-box {
+    color: #e0e0e0;
+}
+h1{
+  font-size: 2rem;
+    color: #a0a0a0;
+    margin-top: -20px;
+    font-weight: 800;
+}
+.reset-btn {
+    margin-top: 8px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    background: #f0f0f0;
+    border: 1px solid #878787;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.reset-btn:hover {
+    background: #ffcccc; /* Soft red highlight on hover */
+    color: #cc0000;
+    border-color: #cc0000;}
+#Contact{
+  font-size: 2rem;
+    color: #a0a0a0;
+    margin-top: -20px;
+    font-weight: 800;
+}
+#Aboutus{
+  font-size: 2rem;
+    color: #ffff;
+    margin-top: 0%;
+    font-weight: 800;
+    transform: translateY(180px)
+}
+#aboutus{
+  font-size: 1rem;
+    color: #ffff;
+    margin-top: -20px;
+    font-weight: 800;
+    transform: translateY(180px)
+}
+#Contactus{
+  font-size: 1rem;
+    color: #ffff;
+    margin-top: -20px;
+    font-weight: 800;
+    transform: translateY(180px)
+}
+.Order{
+  width: 80%;
+  height:400px;
+  background-color: #fff;
+  border: 1px solid #878787;
+    border-radius: 30px;
+    box-sizing:inherit;
+    padding: 20px;
+    transform: translate(0px,60px);
+    font-size: 50px;
+    position: center;
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-decoration-color: #878787;
+    
+
+}

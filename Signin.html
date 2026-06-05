@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Patrick F. Taylor Shop</title>
+  <style>
+    /* Global Page Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b5d0ff;
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    /* --- NAVIGATION BAR STYLING --- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+      padding: 40px 24px;
+      background: #fff;
+      border: 1px solid #fff;
+      border-radius: 12px;
+    }
+
+    nav h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #878787;
+    }
+
+    #nav-ul {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-li a {
+      color: #878787;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-li a:hover {
+      background: #878787;
+      color: #fff;
+    }
+
+    /* --- SIGN IN CARD STYLING --- */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .login-card {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: 500px;
+      max-width: 360px;
+
+    }
+
+    .login-card h2 {
+      margin-bottom: 24px;
+      text-align: center;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .submit-btn:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .input-group input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
+
+    .status-msg {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .home-btn:hover {
+      background-color: #218838;
+    }
+
+    .order-details {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px solid #e9ecef;
+    }
+
+    .order-details h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      margin-top: 10px;
+      border-top: 1px solid #dee2e6;
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="all-contents">
+
+    <!-- NAVIGATION BAR STRUCTURE -->
+    <nav>
+      <h1>The PT Shop</h1>
+      <ul id="nav-ul">
+        <li class="nav-li"><a href="index.html">Home</a></li>
+        <li class="nav-li"><a href="Shop.html">Shop</a></li>
+        <li class="nav-li"><a href="Checkout.html">Checkout</a></li>
+        <li class="nav-li"><a href="Signin.html">Complete Order</a></li>
+      </ul>
+    </nav>
+
+    <!-- SIGN IN CONTAINER -->
+    <div class="form-container">
+      <div class="login-card">
+        <h2>Complete Order</h2>
+        <form id="loginForm">
+
+          <div class="input-group">
+            <label for="email">Student Email</label>
+            <input type="email" id="email" required placeholder="name@jpschools.org">
+          </div>
+
+          <div class="input-group">
+            <label for="shopCode">Shop Verification Code</label>
+            <input type="text" id="shopCode" required placeholder="Enter shop code">
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Order</button>
+
+          <p id="statusMessage" class="status-msg"></p>
+          <a href="index.html" id="homeButton" class="home-btn" style="display: none;">Return to Home</a>
+        </form>
+
+        <!-- ORDER DETAILS SECTION -->
+        <div class="order-details">
+          <h3>Order Summary</h3>
+          <div id="orderDetailsContent">
+            <!-- Items will be populated here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- Closes #all-contents -->
+
+  <script>
+    // --- PRICE PER UNIT FOR EACH ITEM ---
+    const PRICES = {
+      'item-1': 1,  // Popcorners: $1
+      'item-2': 1,  // Rice Crispy: $1
+      'item-3': 1   // Capri Suns: $1
+    };
+
+    const ITEM_NAMES = {
+      'item-1': 'Popcorners',
+      'item-2': 'Rice Crispy',
+      'item-3': 'Capri Suns'
+    };
+
+    // Function to update and display order details
+    function updateOrderDetails() {
+      const popcornersCount = parseInt(localStorage.getItem('item-1')) || 0;
+      const riceCrispyCount = parseInt(localStorage.getItem('item-2')) || 0;
+      const capriSunCount = parseInt(localStorage.getItem('item-3')) || 0;
+
+      const items = [
+        { id: 'item-1', count: popcornersCount },
+        { id: 'item-2', count: riceCrispyCount },
+        { id: 'item-3', count: capriSunCount }
+      ];
+
+      let totalPrice = 0;
+      let orderHTML = '';
+
+      items.forEach(item => {
+        if (item.count > 0) {
+          const itemPrice = item.count * PRICES[item.id];
+          totalPrice += itemPrice;
+          orderHTML += `<div class="order-item"><span>${ITEM_NAMES[item.id]} x ${item.count}</span><span>$${itemPrice.toFixed(2)}</span></div>`;
+        }
+      });
+
+      if (orderHTML === '') {
+        orderHTML = '<div class="order-item" style="color: #999;">No items ordered</div>';
+      } else {
+        orderHTML += `<div class="order-total"><span>Total:</span><span>$${totalPrice.toFixed(2)}</span></div>`;
+      }
+
+      document.getElementById('orderDetailsContent').innerHTML = orderHTML;
+    }
+
+    // Update order details on page load
+    window.addEventListener('load', updateOrderDetails);
+
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const inputCode = document.getElementById('shopCode').value;
+      const statusMessage = document.getElementById('statusMessage');
+
+      // --- MULTI-PASSCODE ALLOW LIST ---
+      const allowedPasscodes = ['Taylor30', 'Taylor29', 'Taylor28', 'Taylor27'];
+
+      // Checks if the entered code is NOT found in your array list
+      if (!allowedPasscodes.includes(inputCode)) {
+        statusMessage.style.color = "red";
+        statusMessage.textContent = "Invalid passcode. Order blocked.";
+        return; // Hard stop: blocks the submission instantly
+      }
+
+      // --- CONTINUE SENDING DATA IF THE CODE IS VALID ---
+      statusMessage.style.color = "blue";
+      statusMessage.textContent = "Submitting order details...";
+
+      const popcornersCount = localStorage.getItem('item-1') || 0;
+      const riceCrispyCount = localStorage.getItem('item-2') || 0;
+      const capriSunCount = localStorage.getItem('item-3') || 0;
+
+      const targetUrl = 'https://formspree.io/f/mlgkggen';
+
+      // Code is processed locally and omitted here to stop Formspree from flagging phishing
+      const formData = {
+        student_email: email,
+        ordered_popcorners: popcornersCount,
+        ordered_rice_crispy: riceCrispyCount,
+        ordered_capri_suns: capriSunCount
+      };
+
+      fetch(targetUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+        .then(response => {
+          if (response.ok) {
+            statusMessage.style.color = "green";
+            statusMessage.textContent = "Success! Order details sent.";
+            document.getElementById('homeButton').style.display = "block";
+            updateOrderDetails(); // Refresh order details display
+
+            // Disable the form to prevent resubmission
+            document.getElementById('email').disabled = true;
+            document.getElementById('shopCode').disabled = true;
+            document.querySelector('.submit-btn').disabled = true;
+          } else {
+            statusMessage.style.color = "red";
+            statusMessage.textContent = "Submission error. Please check form settings.";
+          }
+        })
+        .catch(error => {
+          statusMessage.style.color = "red";
+          statusMessage.textContent = "Network error. Try again.";
+        });
+    });
+  </script>
+
+</body>
+
+</html>
